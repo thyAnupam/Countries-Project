@@ -1,0 +1,28 @@
+<div class="container">
+<div class="search-wrapper">
+    <input style="background-color: #f4f7fc; font-size: large; width: 250px; position: relative; left: 320px;" [(ngModel)]="currencyCode" placeholder="Enter currency code" />
+    <button style="position: relative; width: 100px; right: 260px;" (click)="searchCountries()">Search</button>
+    <span class="label">Sort By: </span>
+    <div class="dropdown">
+        <button class="dropbtn" style="width: 210px;">
+            {{option}}
+        </button>
+
+        <div class="dropdown-content" *ngIf="isBttonDisabled">
+            <a href="#" *ngFor="let op of sorted" (click)="searchCountries(); option = op">{{op}}</a>
+        </div>
+    </div>
+</div>
+
+
+  
+  <div class="result" id="result">
+    <div *ngFor="let country of countries" class="country-card">
+      <img [src]="country.flags.svg" alt="Flag" />
+      <h3>{{ country.name }}</h3>
+      <p>Capital: {{ country.capital }}</p>
+      <p>Continent: {{ country.region }}</p>
+      <p>Population: {{ country.population }}</p>
+    </div>
+  </div>
+</div>
