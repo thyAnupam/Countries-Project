@@ -23,7 +23,7 @@ RUN ng build --prod
 FROM nginx:alpine
 
 # Copy the Angular app build from the builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist/currency-search-app/ /usr/share/nginx/html
 
 # Expose port 80 to the outside world
 EXPOSE 80
